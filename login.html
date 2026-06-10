@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Login | BlockVote</title>
+
+<link rel="stylesheet" href="login.css">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="bg3"></div>
+
+<div class="floating floating1">
+    <i class="fa-solid fa-cube"></i>
+</div>
+
+<div class="floating floating2">
+    <i class="fa-solid fa-link"></i>
+</div>
+
+<div class="floating floating3">
+    <i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<div class="floating floating4">
+    <i class="fa-solid fa-lock"></i>
+</div>
+
+<!-- Header -->
+
+<header>
+
+<div class="logo">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h1>BlockVote</h1>
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="register.html">Register</a>
+
+<a href="login.html" class="active">
+Login
+</a>
+
+<a href="vote.html">Vote</a>
+
+<a href="results.html">Results</a>
+
+</nav>
+
+</header>
+
+<!-- Login Section -->
+
+<section class="login-section">
+
+<div class="login-card">
+
+<!-- Icon -->
+
+<div class="top-icon">
+
+<i class="fa-solid fa-user-lock"></i>
+
+</div>
+
+<h2>Secure Login</h2>
+
+<p>
+Access your blockchain voter account
+</p>
+
+<!-- Voter ID -->
+
+<div class="input-box">
+
+<i class="fa-solid fa-id-card"></i>
+
+<input
+type="text"
+id="voterid"
+placeholder="Enter EPIC Number"
+style="text-transform:uppercase;"
+>
+
+</div>
+
+<!-- Password -->
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password"
+>
+
+</div>
+
+<!-- Login Button -->
+
+<button onclick="loginUser()">
+
+Login Now
+
+</button>
+
+<!-- Register Link -->
+
+<div class="register-link">
+
+New User?
+
+<a href="register.html">
+
+Create Account
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- JavaScript -->
+
+<script>
+
+function loginUser(){
+
+    let voterid =
+    document.getElementById("voterid")
+    .value.toUpperCase().trim();
+
+    let password =
+    document.getElementById("password")
+    .value;
+
+    if(
+        voterid === "" ||
+        password === ""
+    ){
+        alert("Please enter all details ❌");
+        return;
+    }
+
+    let users =
+    JSON.parse(
+        localStorage.getItem("users") || "[]"
+    );
+
+    let matchedUser =
+    users.find(
+        user =>
+        user.voterid.toUpperCase() === voterid
+    );
+
+    if(!matchedUser){
+        alert("EPIC Number not registered ❌");
+        return;
+    }
+
+    if(matchedUser.password !== password){
+        alert("Incorrect Password ❌");
+        return;
+    }
+
+    localStorage.setItem(
+        "currentUser",
+        JSON.stringify(matchedUser)
+    );
+
+    localStorage.setItem(
+        "voterid",
+        matchedUser.voterid
+    );
+
+    localStorage.setItem(
+        "firstname",
+        matchedUser.firstname
+    );
+
+    localStorage.setItem(
+        "lastname",
+        matchedUser.lastname
+    );
+
+    localStorage.setItem(
+        "email",
+        matchedUser.email
+    );
+
+    localStorage.setItem(
+        "hasVoted",
+        matchedUser.hasVoted ? "true" : "false"
+    );
+
+    alert("Login Successful ✅");
+
+    window.location.href = "vote.html";
+}
+
+</script>
+</body>
+
+</html>

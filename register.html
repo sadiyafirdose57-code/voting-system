@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | BlockVote</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="register.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+
+<body>
+
+    <!-- Background Glow -->
+    <div class="bg1"></div>
+    <div class="bg2"></div>
+    <div class="bg3"></div>
+
+    <div class="floating floating1"></div>
+    <div class="floating floating2"></div>
+    <div class="floating floating3"></div>
+    <div class="floating floating4"></div>
+
+    <div class="node node1"></div>
+    <div class="node node2"></div>
+    <div class="node node3"></div>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h1>BlockVote</h1>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="register.html" class="active">
+
+                Register
+
+            </a>
+
+            <a href="login.html">Login</a>
+
+            <a href="vote.html">Vote</a>
+
+            <a href="results.html">Results</a>
+
+        </nav>
+
+    </header>
+
+    <!-- Register Section -->
+
+    <section class="register-section">
+        <div class="register-banner">
+
+            <div class="banner-content">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h2>BlockVote</h2>
+
+                <p>
+                    Secure Blockchain-Based
+                    Online Voting System
+                </p>
+
+                <div class="feature-list">
+
+                    <div class="feature-item">
+                        🔒 End-to-End Security
+                    </div>
+
+
+                    <div class="feature-item">
+                        📧 Email Authentication
+                    </div>
+
+                    <div class="feature-item">
+                        🗳️ Transparent Voting
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="register-card">
+            <div class="security-panel">
+
+                <div class="feature">
+                    🔒 Blockchain Security
+                </div>
+
+
+                <div class="feature">
+                    📧 Email Authentication
+                </div>
+
+                <div class="feature">
+                    🛡️ Tamper-Proof Voting
+                </div>
+
+            </div>
+            <div class="top-icon">
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+
+            <h2>
+                Secure Voter Registration
+            </h2>
+
+            <p class="subtitle">
+                Create your account and verify your identity to participate in secure blockchain-based elections.
+            </p>
+            <div class="progress-bar">
+
+                <div class="step active">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Details</span>
+                </div>
+
+
+                <div class="step">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                </div>
+
+            </div>
+            <!-- Name Row -->
+            <div class="row">
+                <!-- First Name -->
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="firstname" placeholder="First Name">
+                </div>
+                <!-- Last Name -->
+                <div class="input-box">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="lastname" placeholder="Last Name">
+                </div>
+            </div>
+
+            <!-- Details Row -->
+            <div class="row">
+                <!-- Age -->
+                <div class="input-box">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="number" id="age" placeholder="Age (Must be 18+)" min="1" max="120">
+                </div>
+                <!-- Phone -->
+                <div class="input-box">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="text" id="phone" placeholder="Phone Number">
+                </div>
+            </div>
+
+            <!-- Identifiers Row -->
+            <div class="row">
+                <!-- Voter ID -->
+                <div class="input-box">
+                    <i class="fa-solid fa-id-card"></i>
+                    <input type="text" id="voterid" placeholder="EPIC Number (E.g. KAR1234567)">
+                </div>
+                <!-- Aadhaar Number -->
+                <div class="input-box">
+                    <i class="fa-solid fa-fingerprint"></i>
+                    <input type="text" id="aadhaar" placeholder="12-Digit Aadhaar Number" maxlength="12">
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="input-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="text" id="address" placeholder="Address">
+            </div>
+
+            <!-- Password Row -->
+            <div class="row">
+                <!-- Password -->
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+                <!-- Confirm Password -->
+                <div class="input-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                </div>
+            </div>
+
+            <!-- Email Verification -->
+            <div class="verify-section">
+
+                <h3>📧 Email Verification</h3>
+
+                <div class="input-row">
+
+                    <input type="email" id="email" placeholder="Enter Email Address" onblur="checkEmailExists()">
+
+
+                    <button type="button" onclick="sendEmailOTP()">
+                        Send OTP
+                    </button>
+
+                </div>
+
+                <div class="input-row">
+
+                    <input type="text" id="emailOtp" placeholder="Enter Email OTP">
+
+                    <button type="button" onclick="verifyEmailOTP()">
+                        Verify OTP
+                    </button>
+
+                </div>
+
+                <div id="emailStatus" class="status-badge">
+                    Email Not Verified ❌
+                </div>
+
+            </div>
+
+            <!-- Mobile OTP Verification -->
+            <div class="verify-section">
+                <h3>📱 Mobile Verification</h3>
+                <div class="input-row">
+                    <span style="font-size: 14px; color: #cbd5e1; display: block;">Send verification code to your phone
+                        number</span>
+                </div>
+                <div class="input-row">
+                    <button type="button" style="width: 100%;" onclick="sendOTP()">Send Mobile OTP</button>
+                </div>
+                <div class="input-row">
+                    <input type="text" id="otp" placeholder="Enter Mobile OTP">
+                    <button type="button" onclick="verifyOTP()">Verify OTP</button>
+                </div>
+                <div id="otpStatus" class="status-badge">
+                    Mobile Not Verified ❌
+                </div>
+            </div>
+
+            <!-- Aadhaar Verification -->
+            <div class="verify-section">
+                <h3>🆔 Aadhaar Verification</h3>
+                <div class="input-row">
+                    <span style="font-size: 14px; color: #cbd5e1; display: block;">Simulate Aadhaar verification via OTP
+                        authentication</span>
+                </div>
+                <div class="input-row">
+                    <button type="button" style="width: 100%;" onclick="sendAadhaarOTP()">Send Aadhaar OTP</button>
+                </div>
+                <div class="input-row">
+                    <input type="text" id="aadhaarOtp" placeholder="Enter Aadhaar OTP">
+                    <button type="button" onclick="verifyAadhaarOTP()">Verify OTP</button>
+                </div>
+                <div id="aadhaarStatus" class="status-badge">
+                    Aadhaar Not Verified ❌
+                </div>
+            </div>
+
+            <!-- Register Button -->
+
+            <button class="register-btn" onclick="registerUser()">
+
+                Register Now
+
+            </button>
+
+            <!-- Login Redirect -->
+
+            <div class="login-link">
+
+                Already Registered?
+
+                <a href="login.html">
+
+                    Login Here
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+
+        emailjs.init("XgTY6kBkW2yTw6nND");
+
+        /* Variables */
+
+        
+        let generatedEmailOTP = "";
+        let emailVerified = false;
+
+        let generatedAadhaarOTP = "";
+        let aadhaarVerified = false;
+
+        
+        /* Mobile OTP */
+
+        function sendOTP() {
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+            if (phone === "") {
+                alert("Please enter phone number ❌");
+                return;
+            }
+            if (email === "") {
+                alert("Please enter email address first to receive the OTP verification ❌");
+                return;
+            }
+            generatedOTP = Math.floor(100000 + Math.random() * 900000);
+
+            // Send OTP to email via EmailJS to simulate phone delivery for testing
+            const templateParams = {
+                to_email: email,
+                otp: `Mobile Verification OTP: ${generatedOTP}`
+            };
+
+            emailjs.send("service_jnngbds", "template_q0m8oe9", templateParams)
+                .then(function (response) {
+                    alert("Demo Mobile OTP sent to your email address (simulating phone delivery) ✅");
+                })
+                .catch(function (error) {
+                    console.log("EmailJS SMS Simulation Error:", error);
+                    alert("Demo Mobile OTP: " + generatedOTP);
+                });
+        }
+
+        function verifyOTP() {
+            let enteredOTP = document.getElementById("otp").value;
+            if (enteredOTP == generatedOTP && enteredOTP !== "") {
+                otpVerified = true;
+                let statusBadge = document.getElementById("otpStatus");
+                statusBadge.innerHTML = "OTP Verified ✅";
+                statusBadge.style.background = "rgba(74, 222, 128, 0.15)";
+                statusBadge.style.color = "#4ade80";
+            } else {
+                alert("Invalid OTP ❌");
+            }
+        }
+
+       /* Email OTP */
+
+function checkEmailExists(){
+
+    let email = document.getElementById("email").value.trim().toLowerCase();
+
+    let users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    if(users.some(u =>
+        u.email.toLowerCase() === email
+    )){
+        alert("This email is already registered! ❌");
+        return true;
+    }
+
+    return false;
+}
+
+function sendEmailOTP(){
+
+    if(checkEmailExists()){
+        return;
+    }
+
+    let email =
+    document.getElementById("email").value;
+
+    if(email === ""){
+        alert("Please enter email address ❌");
+        return;
+    }
+
+    generatedEmailOTP =
+    Math.floor(100000 + Math.random() * 900000);
+
+    const templateParams = {
+        to_email: email,
+        otp: generatedEmailOTP
+    };
+
+    emailjs.send(
+        "service_jnngbds",
+        "template_q0m8oe9",
+        templateParams
+    )
+    .then(function(){
+        alert("OTP sent to email ✅");
+    })
+    .catch(function(error){
+        console.log(error);
+        alert("Failed to send email OTP ❌");
+    });
+}
+function verifyEmailOTP(){
+
+    let enteredOTP =
+    document.getElementById("emailOtp").value.trim();
+
+    if(
+        enteredOTP === generatedEmailOTP.toString()
+    ){
+
+        emailVerified = true;
+
+        let statusBadge =
+        document.getElementById("emailStatus");
+
+        statusBadge.innerHTML =
+        "Email Verified ✅";
+
+        statusBadge.style.background =
+        "rgba(74, 222, 128, 0.15)";
+
+        statusBadge.style.color =
+        "#4ade80";
+
+        alert("Email Verified Successfully ✅");
+
+    }else{
+
+        alert("Invalid Email OTP ❌");
+
+    }
+}
+
+/* Aadhaar OTP */
+
+function sendAadhaarOTP() {
+                let aadhaar = document.getElementById("aadhaar").value;
+                if (aadhaar === "" || aadhaar.length !== 12 || isNaN(aadhaar)) {
+                    alert("Please enter a valid 12-digit Aadhaar Number ❌");
+                    return;
+                }
+                generatedAadhaarOTP = Math.floor(100000 + Math.random() * 900000);
+                alert("Demo Aadhaar OTP (Sent to registered mobile): " + generatedAadhaarOTP);
+            }
+
+            /* Verify Aadhaar OTP */
+
+            function verifyAadhaarOTP() {
+                let enteredOTP = document.getElementById("aadhaarOtp").value;
+                if (enteredOTP == generatedAadhaarOTP && enteredOTP !== "") {
+                    aadhaarVerified = true;
+                    let statusBadge = document.getElementById("aadhaarStatus");
+                    statusBadge.innerHTML = "Aadhaar Verified ✅";
+                    statusBadge.style.background = "rgba(74, 222, 128, 0.15)";
+                    statusBadge.style.color = "#4ade80";
+                } else {
+                    alert("Invalid Aadhaar OTP ❌");
+                }
+            }
+
+            /* Register User */
+
+            function registerUser() {
+                let firstname = document.getElementById("firstname").value;
+                let lastname = document.getElementById("lastname").value;
+                let age = document.getElementById("age").value;
+                let phone = document.getElementById("phone").value;
+                let voterid = document.getElementById("voterid").value;
+                let aadhaar = document.getElementById("aadhaar").value;
+                let address = document.getElementById("address").value;
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+                let confirmPassword = document.getElementById("confirmPassword").value;
+
+                /* Empty Validation */
+                if (
+                    firstname === "" ||
+                    lastname === "" ||
+                    age === "" ||
+                    phone === "" ||
+                    voterid === "" ||
+                    aadhaar === "" ||
+                    address === "" ||
+                    email === "" ||
+                    password === "" ||
+                    confirmPassword === ""
+                ) {
+                    alert("Please fill all details ❌");
+                    return;
+                }
+
+                /* Age Validation */
+                if (parseInt(age) < 18) {
+                    alert("Voter must be 18 years or older to register ❌");
+                    return;
+                }
+
+                /* Aadhaar Validation */
+                if (aadhaar.length !== 12 || isNaN(aadhaar)) {
+                    alert("Please enter a valid 12-digit Aadhaar Number ❌");
+                    return;
+                }
+
+                /* Password Match */
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match ❌");
+                    return;
+                }
+
+                /* Email OTP Verification */
+                if (!emailVerified) {
+                    alert("Please verify email OTP ❌");
+                    return;
+                }
+
+                /* Mobile OTP Verification */
+                if (!otpVerified) {
+                    alert("Please verify mobile OTP ❌");
+                    return;
+                }
+
+                /* Aadhaar OTP Verification */
+                if (!aadhaarVerified) {
+                    alert("Please verify Aadhaar OTP ❌");
+                    return;
+                }
+
+                // Check if email already exists in users array
+                let users = JSON.parse(localStorage.getItem("users") || "[]");
+                if (users.some(u => u.email.toLowerCase() === email.toLowerCase().trim())) {
+                    alert("This email is already registered! ❌");
+                    return;
+                }
+
+                // Check legacy single user email key
+                let legacyEmail = localStorage.getItem("email");
+                if (legacyEmail && legacyEmail.toLowerCase() === email.toLowerCase().trim()) {
+                    alert("This email is already registered! ❌");
+                    return;
+                }
+
+                // Add user to the array
+                let newUser = {
+                    firstname: firstname,
+                    lastname: lastname,
+                    age: age,
+                    phone: phone,
+                    voterid: voterid.toUpperCase().trim(),
+                    aadhaar: aadhaar,
+                    address: address,
+                    email: email,
+                    password: password,
+                    hasVoted: false
+                };
+                users.push(newUser);
+                localStorage.setItem("users", JSON.stringify(users));
+
+                /* Save User Data (legacy keys compatibility) */
+                localStorage.setItem("firstname", firstname);
+                localStorage.setItem("lastname", lastname);
+                localStorage.setItem("age", age);
+                localStorage.setItem("phone", phone);
+                localStorage.setItem("voterid", voterid.toUpperCase().trim());
+                localStorage.setItem("aadhaar", aadhaar);
+                localStorage.setItem("address", address);
+                localStorage.setItem("email", email);
+                localStorage.setItem("password", password);
+                localStorage.setItem("hasVoted", "false");
+
+                /* Success */
+                alert("Registration Successful ✅");
+                window.location.href = "login.html";
+            }
+
+    </script>
+    <script>
+            const inputs = document.querySelectorAll('input');
+
+            inputs.forEach((input, index) => {
+                input.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (index < inputs.length - 1) {
+                            inputs[index + 1].focus();
+                        } else {
+                            registerUser();
+                        }
+                    }
+                });
+            });
+    </script>
+<script>
+
+let generatedOTP = "";
+
+function sendEmailOTP() {
+
+    function sendEmailOTP(){
+
+    if(checkEmailExists()){
+        return;
+    }
+
+    let email =
+    document.getElementById("email").value.trim();
+
+
+    if(email === ""){
+        alert("Enter email ❌");
+        return;
+    }
+
+
+    generatedEmailOTP =
+    Math.floor(100000 + Math.random() * 900000);
+
+
+    const templateParams = {
+
+        to_email: email,
+        otp: generatedEmailOTP
+
+    };
+
+
+    emailjs.send(
+        "service_jnngbds",
+        "template_q0m8oe9",
+        templateParams
+    )
+
+    .then(function(){
+
+        alert(
+        "OTP sent to your email ✅"
+        );
+
+    })
+
+    .catch(function(error){
+
+        console.log(error);
+
+        alert(
+        "Email sending failed ❌"
+        );
+
+    });
+
+}
+function verifyEmailOTP() {
+
+    const enteredOTP =
+        document.getElementById("emailOtp").value;
+
+    if (enteredOTP === generatedOTP) {
+
+        document.getElementById("emailStatus").innerHTML =
+            "Email Verified ✅";
+
+        document.getElementById("emailStatus").style.color =
+            "green";
+
+        alert("OTP Verified Successfully");
+
+    } else {
+
+        alert("Invalid OTP");
+    }
+}
+
+</script>
+</body>
+
+</html>

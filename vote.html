@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Vote | BlockVote</title>
+
+<link rel="stylesheet"
+href="vote.css">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+<!-- Background Glow -->
+<!-- Animated Background -->
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="bg3"></div>
+
+<div class="floating floating1">
+    <i class="fa-solid fa-cube"></i>
+</div>
+
+<div class="floating floating2">
+    <i class="fa-solid fa-link"></i>
+</div>
+
+<div class="floating floating3">
+    <i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<div class="floating floating4">
+    <i class="fa-solid fa-vote-yea"></i>
+</div>
+<!-- Header -->
+
+<header>
+
+<div class="logo">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h1>BlockVote</h1>
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="register.html">Register</a>
+
+<a href="login.html">Login</a>
+
+<a href="vote.html" class="active">Vote</a>
+
+<a href="results.html">Results</a>
+
+</nav>
+
+</header>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<h1>Cast Your Secure Vote</h1>
+
+<p>
+Blockchain secured digital election system
+</p>
+
+</section>
+
+<!-- Candidates -->
+
+<div class="candidates-container">
+
+<!-- BJP -->
+
+<div class="candidate-card">
+
+<div class="card-border"></div>
+
+<div class="floating-circle"></div>
+
+<img
+src="./images/bjp.png"
+class="leader-img"
+>
+
+<div class="party-tag bjp-tag">
+
+🪷 BJP
+
+</div>
+
+<h2>Narendra Modi</h2>
+
+<h3>Bharatiya Janata Party</h3>
+
+<p>
+Digital India • National Security • Economic Growth
+</p>
+
+<button onclick="vote('BJP')">
+
+⚡ Cast Secure Vote
+
+</button>
+
+</div>
+
+<!-- Congress -->
+
+<div class="candidate-card">
+
+<div class="card-border"></div>
+
+<div class="floating-circle"></div>
+
+<img
+src="./images/congress.png"
+class="leader-img"
+>
+
+<div class="party-tag congress-tag">
+
+✋ Congress
+
+</div>
+
+<h2>Rahul Gandhi</h2>
+
+<h3>Indian National Congress</h3>
+
+<p>
+Equality • Democracy • Social Welfare
+</p>
+
+<button onclick="vote('Congress')">
+
+⚡ Cast Secure Vote
+
+</button>
+
+</div>
+
+<!-- AAP -->
+
+<div class="candidate-card">
+
+<div class="card-border"></div>
+
+<div class="floating-circle"></div>
+
+<img
+src="./images/aap.png"
+class="leader-img"
+>
+
+<div class="party-tag aap-tag">
+
+🧹 AAP
+
+</div>
+
+<h2>Arvind Kejriwal</h2>
+
+<h3>Aam Aadmi Party</h3>
+
+<p>
+Transparency • Education • Healthcare
+</p>
+
+<button onclick="vote('AAP')">
+
+⚡ Cast Secure Vote
+
+</button>
+
+</div>
+
+<!-- TMC -->
+
+<div class="candidate-card">
+
+<div class="card-border"></div>
+
+<div class="floating-circle"></div>
+
+<img
+src="./images/tmc.png"
+class="leader-img"
+>
+
+<div class="party-tag tmc-tag">
+
+🌸 TMC
+
+</div>
+
+<h2>Mamata Banerjee</h2>
+
+<h3>Trinamool Congress</h3>
+
+<p>
+Women Empowerment • Welfare • Progress
+</p>
+
+<button onclick="vote('TMC')">
+
+⚡ Cast Secure Vote
+
+</button>
+
+</div>
+
+</div>
+
+<!-- JavaScript -->
+
+<script>
+
+function vote(party){
+
+let hasVoted =
+localStorage.getItem(
+"hasVoted"
+);
+
+if(hasVoted === "true"){
+
+alert(
+"You have already voted ❌"
+);
+
+return;
+
+}
+
+/* Save Vote */
+
+localStorage.setItem(
+"selectedParty",
+party
+);
+
+localStorage.setItem(
+"hasVoted",
+"true"
+);
+
+// Update user in list
+let activeVoterId = localStorage.getItem("voterid");
+let usersList = JSON.parse(localStorage.getItem("users") || "[]");
+let matchedUserIndex = usersList.findIndex(u => u.voterid.toUpperCase() === (activeVoterId ? activeVoterId.toUpperCase() : ""));
+if(matchedUserIndex !== -1) {
+    usersList[matchedUserIndex].hasVoted = true;
+    localStorage.setItem("users", JSON.stringify(usersList));
+}
+
+/* Success */
+
+alert(
+"You voted for " + party + " ✅"
+);
+
+/* Redirect */
+
+window.location.href =
+"results.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

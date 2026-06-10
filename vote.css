@@ -1,0 +1,414 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#020617;
+    color:white;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+.bg1,
+.bg2,
+.bg3{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-2;
+}
+
+.bg1{
+    width:350px;
+    height:350px;
+    background:#3b82f6;
+    top:-100px;
+    left:-100px;
+    opacity:.35;
+}
+
+.bg2{
+    width:350px;
+    height:350px;
+    background:#8b5cf6;
+    bottom:-100px;
+    right:-100px;
+    opacity:.35;
+}
+
+.bg3{
+    width:250px;
+    height:250px;
+    background:#06b6d4;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    opacity:.25;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,0.04) 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,0.04) 1px,
+        transparent 1px
+    );
+
+    background-size:40px 40px;
+    z-index:-3;
+}
+
+/* =========================
+   FLOATING ICONS
+========================= */
+
+.floating{
+    position:fixed;
+    color:rgba(255,255,255,.08);
+    z-index:-1;
+    animation:float 8s infinite ease-in-out;
+}
+
+.floating i{
+    font-size:70px;
+}
+
+.floating1{
+    top:15%;
+    left:10%;
+}
+
+.floating2{
+    top:65%;
+    left:15%;
+}
+
+.floating3{
+    top:25%;
+    right:12%;
+}
+
+.floating4{
+    bottom:10%;
+    right:10%;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-30px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo i{
+    color:#38bdf8;
+    font-size:28px;
+}
+
+.logo h1{
+    font-size:28px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#cbd5e1;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover,
+nav .active{
+    color:#38bdf8;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:18px;
+}
+
+/* =========================
+   CANDIDATES GRID
+========================= */
+
+.candidates-container{
+    width:90%;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    padding-bottom:80px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.candidate-card{
+
+    position:relative;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.candidate-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 0 40px rgba(59,130,246,.3);
+}
+
+.card-border{
+
+    position:absolute;
+    inset:0;
+
+    border-radius:30px;
+
+    padding:2px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #3b82f6,
+        #8b5cf6
+    );
+
+    -webkit-mask:
+    linear-gradient(#fff 0 0)
+    content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    pointer-events:none;
+}
+
+/* =========================
+   LEADER IMAGE
+========================= */
+
+.leader-img{
+
+    width:130px;
+    height:130px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:10px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,.15);
+}
+
+/* =========================
+   PARTY TAG
+========================= */
+
+.party-tag{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+}
+
+.bjp-tag{
+    background:rgba(249,115,22,.2);
+    color:#fb923c;
+}
+
+.congress-tag{
+    background:rgba(59,130,246,.2);
+    color:#60a5fa;
+}
+
+.aap-tag{
+    background:rgba(6,182,212,.2);
+    color:#22d3ee;
+}
+
+.tmc-tag{
+    background:rgba(236,72,153,.2);
+    color:#f472b6;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.candidate-card h2{
+    font-size:36px;
+    margin-bottom:12px;
+}
+
+.candidate-card h3{
+    color:#38bdf8;
+    margin-bottom:18px;
+}
+
+.candidate-card p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.candidate-card button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #8b5cf6
+    );
+
+    transition:.3s;
+}
+
+.candidate-card button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 30px rgba(139,92,246,.7);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .candidate-card{
+        padding:25px;
+    }
+
+    .candidate-card h2{
+        font-size:28px;
+    }
+}
